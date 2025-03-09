@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+          "Lucida Sans", Arial, sans-serif;
+      }
+
+      section{
+        min-height: 100vh;
+        width: 100%;
+        margin: 0 auto;
+        background-color: hsl(275, 100%, 97%);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+
+      .faq{
+        width: 70%;
+        /* border-bottom: 2px solid white; */
+        background-color: white;
+        color: black;
+        padding: 2rem;
+        border-radius: 50px;
+        margin-bottom: 1rem;
+      }
+
+      .question{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        /* margin-top: 1rem; */
+      }
+
+      .answer{
+        max-height: 0;
+        overflow: hidden;
+        transition: all 1.4s ease;
+      }
+      .answer p{
+        font-size: 1rem;
+        color: rgba(0, 0, 0, 0.486);
+        padding-top: 1rem;
+      }
+
+      .faq.active .answer{
+        max-height: 300px;
+        animation: fade 1s ease-in;
+      }
+
+      @media (max-width:400px) {
+        section{
+            width: 100%;
+        }
+        .faq{
+            width: 80%;
+            font-size: 10px;
+        }
+      }
+
+      @keyframes fade {
+        from{
+            opacity: 0;
+            transform:translateY(-10px);
+        }
+
+        to{
+            opacity: 1;
+            transform: translateY(0px);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <div class="faq">
+        <div class="question">
+          <h2>What is javaScript?</h2>
+          <i class="fa-solid fa-caret-down fa-lg icon"></i>
+        </div>
+
+        <div class="answer">
+          <p>
+            JavaScript is a high-level, dynamic, and interpreted programming
+            language that is primarily used for client-side scripting on the
+            web. It is often used to add interactive elements to websites,
+            create web applications, and develop desktop and mobile
+            applications.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq">
+        <div class="question">
+          <h2>where you can use it?</h2>
+          <i class="fa-solid fa-caret-down fa-lg icon"></i>
+        </div>
+
+        <div class="answer">
+          <p>
+          JavaScript can be seen in action on various websites, web applications, and mobile applications. It is used to create interactive elements such as animations, scrolling effects, and dynamic content. Additionally, JavaScript is used in desktop applications, game development, and server-side programming with technologies like Node.js.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq">
+        <div class="question">
+          <h2>What are the benefits of using JavaScript?</h2>
+          <i class="fa-solid fa-caret-down fa-lg icon"></i>
+        </div>
+
+        <div class="answer">
+          <p>
+          The benefits of using JavaScript include its ability to dynamically update content on a webpage, respond to user interactions, and enhance the overall user experience. It also allows for the creation of interactive web pages, web applications, and mobile applications.
+          </p>
+        </div>
+      </div>
+
+
+      <script>
+        let faqs = document.querySelectorAll(".faq");
+        let icons = document.querySelectorAll(".icon");
+        
+        faqs.forEach((faq, index) => {
+            faq.addEventListener("click", () => {
+                faq.classList.toggle("active");
+                icons[index].classList.toggle("fa-caret-down");
+                icons[index].classList.toggle("fa-caret-up");
+            });
+        });
+      </script>
+    </section>
+  </body>
+</html>
